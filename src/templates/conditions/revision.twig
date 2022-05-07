@@ -1,0 +1,9 @@
+{% import "_includes/forms" as forms %}
+
+{{
+    forms.lightswitchField({
+        name: 'isRevision',
+        on: condition.isRevision,
+        label: 'is a revision'|t('triggers')
+    })
+}}

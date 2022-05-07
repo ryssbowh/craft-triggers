@@ -1,0 +1,22 @@
+{% import "_includes/forms" as forms %}
+
+{{
+    forms.textField({
+        label: 'Sender class'|t('triggers'),
+        name: 'senderClass',
+        required: true,
+        placeholder: 'craft\\elements\\Entry',
+        value: trigger.senderClass,
+        errors: trigger.getErrors('senderClass')
+    })
+}}
+{{
+    forms.textField({
+        label: 'Event name'|t('triggers'),
+        name: 'eventName',
+        required: true,
+        placeholder: 'afterSave',
+        value: trigger.eventName,
+        errors: trigger.getErrors('eventName')
+    })
+}}

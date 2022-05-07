@@ -1,0 +1,37 @@
+{
+    "name": "ryssbowh/craft-triggers",
+    "description": "Run actions when events are triggered in Craft",
+    "type": "craft-plugin",
+    "license": "MIT",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "trigger",
+        "event",
+        "craft-plugin"
+    ],
+    "authors": [
+        {
+            "name": "The Web Puzzlers",
+            "homepage": "https://github.com/ryssbowh"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "craftcms/cms": "^3.6.5"
+    },
+    "autoload": {
+        "psr-4": {
+          "Ryssbowh\\CraftTriggers\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Triggers",
+        "handle": "triggers",
+        "developer": "The Web Puzzlers",
+        "developerUrl": "https://github.com/ryssbowh",
+        "documentationUrl": "https://github.com/ryssbowh/craft-triggers",
+        "class": "Ryssbowh\\CraftTriggers\\Triggers"
+    }
+}

@@ -1,0 +1,22 @@
+{% import "_includes/forms" as forms %}
+
+{{
+    forms.selectField({
+        label: 'Variable'|t('triggers'),
+        name: 'variable',
+        required: true,
+        value: condition.variable,
+        options: condition.variables,
+        errors: condition.getErrors('variable')
+    })
+}}
+{{
+    forms.textField({
+        label: 'Value'|t('triggers'),
+        name: 'value',
+        required: true,
+        value: condition.value,
+        placeholder: 'Value'|t('triggers'),
+        errors: condition.getErrors('value')
+    })
+}}

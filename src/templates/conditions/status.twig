@@ -1,0 +1,12 @@
+{% import "_includes/forms" as forms %}
+
+{{
+    forms.checkboxSelectField({
+        label: 'Statuses'|t('triggers'),
+        name: 'statuses',
+        options: condition.allStatuses,
+        values: condition.statuses,
+        required: true,
+        errors: condition.getErrors('statuses')
+    })
+}}

@@ -1,0 +1,70 @@
+{% extends "_layouts/cp" %}
+{% do view.registerAssetBundle('Ryssbowh\\CraftTriggers\\assets\\TriggersAssetBundle') %}
+{% set title = 'Triggers'|t('triggers') %}
+{% set selectedSubnavItem = 'triggers' %}
+{% set allowAdminChanges = craft.app.config.general.allowAdminChanges %}
+
+{% block toolbar %}
+    {% if allowAdminChanges %}
+        <a href="{{ url('triggers/add') }}" class="btn submit">{{ 'New trigger'|t('triggers') }}</a>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if triggers %}
+        <div class="tableview">
+            <table class="vuetable data fullwidth">
+                <thead>
+                    <tr>
+                        <th>{{ 'Name'|t('app') }}</th>
+                        <th>{{ 'Type'|t('triggers') }}</th>
+                        <th>{{ 'Conditions'|t('triggers') }}</th>
+                        <th>{{ 'Actions'|t('triggers') }}</th>
+                        <th>{{ 'Active'|t('triggers') }}</th>
+                        <th>{{ 'Triggered'|t('triggers') }}</th>
+                        <th>{{ 'Actions'|t('triggers') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for trigger in triggers %}
+                        <tr>
+                            <td>
+                                {% if allowAdminChanges %}
+                                    <a href="{{ url('triggers/edit/'~trigger.id) }}">{{ trigger.name }}</a>
+                                {% else %}
+                                    {{ trigger.name }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {{ trigger.type }}
+                            </td>
+                            <td>
+                                {{ trigger.conditions|length }}
+                            </td>
+                            <td>
+                                {{ trigger.actions|length }}
+                            </td>
+                            <td>
+                                {{ trigger.active ? 'Yes'|t('triggers') : 'No'|t('triggers') }}
+                            </td>
+                            <td>
+                                {{ '{number} times'|t('triggers', {number: trigger.triggered}) }}
+                            </td>
+                            <td class="actions-cell">
+                                {% if allowAdminChanges %}
+                                    <div class="icon delete" data-id="{{ trigger.id }}" title="{{ 'Delete trigger'|t('triggers') }}"></div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>{{ 'No triggers found'|t('triggers') }}</p>
+    {% endif %}
+{% endblock %}
+
+{% js on ready %}
+    new Craft.Triggers.Triggers
+{% endjs %}

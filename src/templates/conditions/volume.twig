@@ -1,0 +1,11 @@
+{% import "_includes/forms" as forms %}
+
+{{
+    forms.checkboxSelectField({
+        label: 'Volumes'|t('triggers'),
+        name: 'volumes',
+        options: condition.allVolumes,
+        values: condition.volumes,
+        errors: condition.getErrors('volumes')
+    })
+}}

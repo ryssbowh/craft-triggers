@@ -1,0 +1,42 @@
+{% import "_includes/forms" as forms %}
+
+{% set container_class = container_class ?? 'flex flex-nowrap' %}
+{% set container_attributes = container_attributes ?? {} %}
+{% set config_class = config_class ?? 'flex flex-nowrap flex-grow' %}
+{% set config_attributes = config_attributes ?? {} %}
+{% set namespace = condition.id ? '[' ~ condition.id ~ ']' : '[' ~ random(100000, 999999) ~ ']' %}
+
+<div class="condition {{ container_class }}{% if not condition.active %} inactive{% endif %}" data-handle="{{ condition.getHandle() }}" data-namespace="{{ namespace }}" {{ attr(container_attributes) }}>
+    {{ hiddenInput('handle', condition.getHandle()) }}
+    {{ hiddenInput('order', condition.order, {class: 'order'}) }}
+    {{ hiddenInput('id', condition.id) }}
+    <div class="move icon" aria-label="{{ 'Reorder'|t('triggers') }}"></div>
+    <div class="operator">
+        <a href="#" data-and="{{ 'And'|t('triggers') }}" data-or="{{ 'Or'|t('triggers') }}" class="js-change-operator">{{ condition.operator == 'and' ? 'And'|t('triggers') : 'Or'|t('triggers') }}</a>
+        {{ hiddenInput('operator', condition.operator, {class: 'operator-input'}) }}
+    </div>
+    <div class="flex-grow description">
+        {{ condition.description|raw }}
+    </div>
+    <div class="active flex flex-nowrap">
+        {{
+            forms.lightswitch({
+                name: 'active',
+                on: condition.active,
+                class: 'active',
+                small: true
+            })
+        }}
+    </div>
+    {% if condition.hasConfig %}
+        <a href="#" class="icon settings js-edit {% if condition.errors %}error{% endif %}" title="{{ 'Edit'|t('triggers') }}"></a>
+    {% endif %}
+    <a href="#" class="icon delete js-delete" title="{{ 'Delete'|t('triggers') }}"></a>
+    {% if condition.hasConfig %}
+        <div class="condition-wrapper" style="display:none">
+            <div class="condition-config">
+                {% include condition.configTemplate %}
+            </div>
+        </div>
+    {% endif %}
+</div>

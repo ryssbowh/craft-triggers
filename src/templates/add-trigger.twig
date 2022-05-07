@@ -1,0 +1,25 @@
+{% extends "_layouts/cp" %}
+{% do view.registerAssetBundle('Ryssbowh\\CraftTriggers\\assets\\EditTriggerAssetBundle') %}
+{% do view.registerAssetBundle('Ryssbowh\\CraftTriggers\\assets\\SerializeJSON') %}
+
+{% set fullPageForm = true %}
+{% set title = trigger.id ? 'Edit trigger'|t('triggers') : 'New trigger'|t('triggers') %}
+{% set selectedSubnavItem = 'triggers' %}
+{% set mainFormAttributes = {autocomplete: 'off'} %}
+
+{% block submitButton %}
+{% endblock %}
+
+{% block toolbar %}
+    <a href="{{ url('triggers') }}" class="btn">{{ 'Back'|t('triggers') }}</a>
+    <button type="submit" class="btn submit">{{ 'Save'|t('triggers') }}</button>
+{% endblock %}
+
+{% block content %}
+    {{ actionInput('triggers/cp-triggers/save') }}
+    {% if trigger.id %}
+        {{ hiddenInput('id', trigger.id) }}
+    {% endif %}
+    {% include "triggers/_includes/trigger_form" %}
+    {% include "triggers/_includes/config_modal" %}
+{% endblock %}

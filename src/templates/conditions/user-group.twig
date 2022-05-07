@@ -1,0 +1,11 @@
+{% import "_includes/forms" as forms %}
+
+{{
+    forms.checkboxSelectField({
+        label: 'Groups'|t('triggers'),
+        name: 'groups',
+        options: condition.allGroups,
+        values: condition.groups,
+        errors: condition.getErrors('groups')
+    })
+}}

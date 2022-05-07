@@ -1,0 +1,107 @@
+{% import "_includes/forms" as forms %}
+
+{% set selectedSubnavItem = 'triggers' %}
+
+{{
+    forms.textField({
+        name: 'name',
+        value: trigger.name,
+        label: 'Name'|t('triggers'),
+        fieldClass: 'first',
+        errors: errors['name'] ?? []
+    })
+}}
+
+{{
+    forms.selectField({
+        name: 'handle',
+        options: triggers,
+        value: trigger.handle,
+        label: 'Type'|t('triggers'),
+        errors: errors['handle'] ?? [],
+        tip: trigger.tip,
+        instructions: trigger.instructions,
+        disabled: trigger.id ? true : false,
+        id: 'trigger-select'
+    })
+}}
+
+{% if trigger.hasConfig %}
+    {% include 'triggers/trigger-config' %}
+{% endif %}
+
+<div class="flex conditions-wrapper field" {% if not trigger.handle %}style="display: none"{% endif %}>
+    <div class="wrapper-left field flex-grow">
+        <div class="heading">
+            <label>{{ 'Conditions'|t('triggers') }}</label>
+        </div>
+        <div class="input ltr">
+            <div id="conditions-list" class="conditions-list text fullwidth" data-namespace="conditions">
+                {% for condition in trigger.conditions %}
+                    {% include 'triggers/condition' with {
+                        condition: condition
+                    } only %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="wrapper-right field">
+        <div class="btngroup">
+            <button type="button" class="btn add icon menubtn" id="conditions-menubtn">{{ 'New condition'|t('triggers') }}</button>
+            <div class="menu">
+                <ul>
+                    {% for condition in conditions %}
+                        {% set triggers = condition.forTriggers %}
+                        <li>
+                            <a href="#" class="js-add-condition" data-triggers="{{ triggers|join(',') }}" data-global="{{ triggers is same as null }}" data-handle="{{ condition.getHandle() }}">{{ condition.getName() }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="field actions-wrapper flex" {% if not trigger.handle %}style="display: none"{% endif %}>
+    <div class="wrapper-left field flex-grow">
+        <div class="heading">
+            <label>{{ 'Actions'|t('triggers') }}</label>
+        </div>
+        <div class="input ltr">
+            <div class="text fullwidth" id="actions-list">
+                {% for index, action in trigger.actions %}
+                    {% include 'triggers/action' with {
+                        namespace: 'actions[' ~ index ~ ']'
+                    } %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="wrapper-right field">
+        <div class="btngroup">
+            <button type="button" class="btn add icon menubtn" id="actions-menubtn">{{ 'New action'|t('triggers') }}</button>
+            <div class="menu">
+                <ul>
+                    {% for action in actions %}
+                        <li>
+                            <a href="#" class="js-add-action" data-handle="{{ action.getHandle() }}">{{ action.getName() }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{
+    forms.lightswitchField({
+        name: 'active',
+        on: trigger.active,
+        label: 'Active'|t('triggers'),
+        fieldClass: 'last'
+    })
+}}
+
+{% js on ready %}
+    new Craft.Triggers.EditTrigger
+{% endjs %}

@@ -1,0 +1,10 @@
+{% import "_includes/forms" as forms %}
+
+{{
+    forms.textField({
+        name: 'slug',
+        value: condition.slug,
+        label: 'Slug'|t('triggers'),
+        errors: condition.getErrors('slug')
+    })
+}}

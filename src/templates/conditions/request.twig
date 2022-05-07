@@ -1,0 +1,11 @@
+{% import "_includes/forms" as forms %}
+
+{{
+    forms.checkboxSelectField({
+        label: 'Types of request'|t('triggers'),
+        name: 'types',
+        options: condition.allTypes,
+        values: condition.types,
+        errors: condition.getErrors('types')
+    })
+}}

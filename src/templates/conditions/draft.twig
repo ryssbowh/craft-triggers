@@ -1,0 +1,9 @@
+{% import "_includes/forms" as forms %}
+
+{{
+    forms.lightswitchField({
+        name: 'isDraft',
+        on: condition.isDraft,
+        label: 'Is a draft'|t('triggers'),
+    })
+}}

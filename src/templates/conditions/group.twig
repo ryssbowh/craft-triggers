@@ -1,0 +1,7 @@
+<div class="conditions-list text" data-namespace="[conditions]">
+    {% for index, condition in condition.conditions %}
+        {% include 'triggers/condition' with {
+            condition: condition
+        } only %}
+    {% endfor %}
+</div>

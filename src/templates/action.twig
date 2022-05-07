@@ -1,0 +1,35 @@
+{% import "_includes/forms" as forms %}
+{% set namespace = action.id ? '[' ~ action.id ~ ']' : '[' ~ random(100000, 999999) ~ ']' %}
+
+<div class="action flex flex-nowrap{% if not action.active %} inactive{% endif %}" data-handle="{{ action.getHandle() }}" data-namespace="{{ namespace }}">
+    {% namespace 'actions' ~ namespace %}
+        {{ hiddenInput('handle', action.getHandle()) }}
+        {{ hiddenInput('order', action.order, {class: 'order'}) }}
+        {{ hiddenInput('id', action.id) }}
+        <div class="move icon" aria-label="{{ 'Reorder'|t('triggers') }}"></div>
+        <div class="flex-grow description">
+            {{ action.description|raw }}
+        </div>
+        <div class="active flex flex-nowrap">
+            {{
+                forms.lightswitch({
+                    name: 'active',
+                    on: action.active,
+                    class: 'active',
+                    small: true
+                })
+            }}
+        </div>
+        {% if action.hasConfig %}
+            <a href="#" class="icon settings js-edit {% if action.errors %}error{% endif %}" title="{{ 'Edit'|t('triggers') }}"></a>
+        {% endif %}
+        <a href="#" class="icon delete js-delete" title="{{ 'Delete'|t('triggers') }}"></a>
+        {% if action.hasConfig %}
+            <div class="config-wrapper" style="display:none">
+                <div class="action-config">
+                    {% include action.configTemplate %}
+                </div>
+            </div>
+        {% endif %}
+    {% endnamespace %}
+</div>

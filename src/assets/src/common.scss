@@ -1,0 +1,62 @@
+#toolbar {
+    justify-content: end;
+}
+
+.btn-small {
+    height: 25px;
+    padding:  7px;
+}
+
+.spinner {
+    display: none;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-base {
+    align-items: baseline;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.flex-nomarginbottom > *{
+    margin-bottom: 0 !important;
+}
+
+.modal {
+    z-index: 102;
+}
+
+.menu {
+    z-index:  104;
+}
+
+.actions-cell {
+    .icon {
+        margin-right: 7px;
+        &:before {
+            margin-top: -3px;
+        }
+        &.logs {
+            &:before {
+                content: 'circlerarr';
+                color: rgba(123, 135, 147, 0.5);
+            }
+            &:hover:before {
+                color: initial;    
+            }
+        }
+    }
+}
