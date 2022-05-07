@@ -9,14 +9,14 @@ use craft\elements\User;
 use craft\events\ModelEvent;
 use yii\base\Event;
 
-class UserSaved extends Trigger
+class UserDeleted extends Trigger
 {
     /**
      * @inheritDoc
      */
     public function getType(): string
     {
-        return \Craft::t('triggers', 'When a user is saved');
+        return \Craft::t('triggers', 'When a user is deleted');
     }
 
     /**
@@ -24,7 +24,7 @@ class UserSaved extends Trigger
      */
     public function getHandle(): string
     {
-        return 'user-saved';
+        return 'user-deleted';
     }
 
     /**
@@ -33,10 +33,9 @@ class UserSaved extends Trigger
     public function initialize()
     {
         $_this = $this;
-        Event::on(User::class, Element::EVENT_AFTER_SAVE, function (ModelEvent $e) use ($_this) {
+        Event::on(User::class, Element::EVENT_AFTER_DELETE, function (ModelEvent $e) use ($_this) {
             Triggers::$plugin->triggers->onTriggerTriggered($_this, [
                 'user' => $e->sender,
-                'isNew' => $e->isNew,
                 'event' => $e
             ]);
         });

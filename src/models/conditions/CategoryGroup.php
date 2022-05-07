@@ -6,7 +6,7 @@ use Ryssbowh\CraftTriggers\interfaces\TriggerInterface;
 use Ryssbowh\CraftTriggers\models\Condition;
 use yii\base\Event;
 
-class UserGroup extends Condition
+class CategoryGroup extends Condition
 {
     /**
      * @var array
@@ -32,7 +32,7 @@ class UserGroup extends Condition
      */
     public function getName(): string
     {
-        return \Craft::t('triggers', 'User group');
+        return \Craft::t('triggers', 'Category group');
     }
 
     /**
@@ -44,9 +44,9 @@ class UserGroup extends Condition
             return \Craft::t('triggers', 'groups not defined');
         }
         $groups = array_map(function ($group) {
-            return \Craft::$app->userGroups->getGroupByUid($group)->name;
+            return \Craft::$app->categories->getGroupByUid($group)->name;
         }, $this->groups);
-        return \Craft::t('triggers', 'is in of the groups : {groups}', ['groups' => implode(', ', $groups)]);
+        return \Craft::t('triggers', 'group is one of : {groups}', ['groups' => implode(', ', $groups)]);
     }
 
     /**
@@ -54,7 +54,7 @@ class UserGroup extends Condition
      */
     public function getHandle(): string
     {
-        return 'user-group';
+        return 'category-group';
     }
 
     /**
@@ -70,18 +70,18 @@ class UserGroup extends Condition
      */
     public function configTemplate(): string
     {
-        return 'triggers/conditions/user-group';
+        return 'triggers/conditions/category-group';
     }
 
     /**
-     * Get all user groups
+     * Get all volumes
      * 
      * @return array
      */
     public function getAllGroups(): array
     {
         $groups = [];
-        foreach (\Craft::$app->userGroups->getAllGroups() as $group) {
+        foreach (\Craft::$app->categories->getAllGroups() as $group) {
             $groups[$group->uid] = $group->name;
         }
         return $groups;
@@ -92,12 +92,7 @@ class UserGroup extends Condition
      */
     public function check(TriggerInterface $trigger, array $data): bool
     {
-        foreach ($data['user']->groups as $group) {
-            if (in_array($group->uid, $this->groups)) {
-                return true;
-            }
-        }
-        return false;
+        return in_array($data['category']->group->uid, $this->groups);
     }
 
     /**
@@ -105,6 +100,6 @@ class UserGroup extends Condition
      */
     protected function defineForTriggers(): ?array
     {
-        return ['user-saved', 'user-deleted', 'user-email-verified', 'user-activated', 'user-locked', 'user-unlocked', 'user-suspended', 'user-unsuspended', 'user-assigned-groups'];
+        return ['category-saved', 'category-deleted'];
     }
 }

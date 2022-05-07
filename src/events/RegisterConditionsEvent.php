@@ -6,6 +6,8 @@ use Ryssbowh\CraftTriggers\exceptions\ConditionException;
 use Ryssbowh\CraftTriggers\interfaces\ConditionInterface;
 use Ryssbowh\CraftTriggers\models\conditions\AssetKind;
 use Ryssbowh\CraftTriggers\models\conditions\AssetVolume;
+use Ryssbowh\CraftTriggers\models\conditions\CategoryGroup;
+use Ryssbowh\CraftTriggers\models\conditions\CategoryStatus;
 use Ryssbowh\CraftTriggers\models\conditions\EntryDraft;
 use Ryssbowh\CraftTriggers\models\conditions\EntryRevision;
 use Ryssbowh\CraftTriggers\models\conditions\EntrySection;
@@ -48,6 +50,8 @@ class RegisterConditionsEvent extends Event
             new Request,
             new UserStatus,
             new UserGroup,
+            new CategoryStatus,
+            new CategoryGroup,
         ]);
     }
 

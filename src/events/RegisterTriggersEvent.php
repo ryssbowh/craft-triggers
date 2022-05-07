@@ -6,11 +6,14 @@ use Ryssbowh\CraftTriggers\exceptions\TriggerException;
 use Ryssbowh\CraftTriggers\interfaces\TriggerInterface;
 use Ryssbowh\CraftTriggers\models\triggers\AssetDeleted;
 use Ryssbowh\CraftTriggers\models\triggers\AssetSaved;
+use Ryssbowh\CraftTriggers\models\triggers\CategoryDeleted;
+use Ryssbowh\CraftTriggers\models\triggers\CategorySaved;
 use Ryssbowh\CraftTriggers\models\triggers\Custom;
 use Ryssbowh\CraftTriggers\models\triggers\EntryDeleted;
 use Ryssbowh\CraftTriggers\models\triggers\EntrySaved;
 use Ryssbowh\CraftTriggers\models\triggers\UserActivated;
 use Ryssbowh\CraftTriggers\models\triggers\UserAssignedToGroups;
+use Ryssbowh\CraftTriggers\models\triggers\UserDeleted;
 use Ryssbowh\CraftTriggers\models\triggers\UserEmailVerified;
 use Ryssbowh\CraftTriggers\models\triggers\UserFailsToLogin;
 use Ryssbowh\CraftTriggers\models\triggers\UserLocked;
@@ -35,8 +38,13 @@ class RegisterTriggersEvent extends Event
         parent::init();
         $this->addMany([
             new EntrySaved,
+            new EntryDeleted,
             new AssetSaved,
+            new AssetDeleted,
+            new CategorySaved,
+            new CategoryDeleted,
             new UserSaved,
+            new UserDeleted,
             new UserEmailVerified,
             new UserActivated,
             new UserLocked,
@@ -44,8 +52,6 @@ class RegisterTriggersEvent extends Event
             new UserSuspended,
             new UserUnsuspended,
             new UserAssignedToGroups,
-            new AssetDeleted,
-            new EntryDeleted,
             new UserFailsToLogin,
             new Custom,
         ]);

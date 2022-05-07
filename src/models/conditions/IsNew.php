@@ -77,6 +77,6 @@ class IsNew extends Condition
      */
     protected function defineForTriggers(): ?array
     {
-        return ['entry-saved', 'asset-saved'];
+        return ['entry-saved', 'asset-saved', 'category-saved', 'user-saved'];
     }
 }

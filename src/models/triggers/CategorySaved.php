@@ -5,18 +5,18 @@ namespace Ryssbowh\CraftTriggers\models\triggers;
 use Ryssbowh\CraftTriggers\Triggers;
 use Ryssbowh\CraftTriggers\models\Trigger;
 use craft\base\Element;
-use craft\elements\User;
+use craft\elements\Category;
 use craft\events\ModelEvent;
 use yii\base\Event;
 
-class UserSaved extends Trigger
+class CategorySaved extends Trigger
 {
     /**
      * @inheritDoc
      */
     public function getType(): string
     {
-        return \Craft::t('triggers', 'When a user is saved');
+        return \Craft::t('triggers', 'When a category is saved');
     }
 
     /**
@@ -24,7 +24,7 @@ class UserSaved extends Trigger
      */
     public function getHandle(): string
     {
-        return 'user-saved';
+        return 'category-saved';
     }
 
     /**
@@ -33,9 +33,9 @@ class UserSaved extends Trigger
     public function initialize()
     {
         $_this = $this;
-        Event::on(User::class, Element::EVENT_AFTER_SAVE, function (ModelEvent $e) use ($_this) {
+        Event::on(Category::class, Element::EVENT_AFTER_SAVE, function (ModelEvent $e) use ($_this) {
             Triggers::$plugin->triggers->onTriggerTriggered($_this, [
-                'user' => $e->sender,
+                'category' => $e->sender,
                 'isNew' => $e->isNew,
                 'event' => $e
             ]);

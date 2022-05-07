@@ -13,23 +13,25 @@ A trigger has a certain type which define which event it answers to, it also def
 Triggers defined by this plugin :
 
 
-| Type                    | Data                   |
-|-------------------------|------------------------|
-| Asset deleted           | event, asset           |
-| Asset saved             | event, asset, isNew    |
-| Category deleted        | event, category        |
-| Category saved          | event, category, isNew |
-| Entry deleted           | event, entry           |
-| Entry saved             | event, entry, isNew    |
-| User activated          | event, user            |
-| User assigned to groups | event, user            |
-| User email verified     | event, user            |
-| User fails to login     | event, user            |
-| User locked             | event, user            |
-| User saved              | event, user, isNew     |
-| User suspended          | event, user            |
-| User unlocked           | event, user            |
-| User unsuspended        | event, user            |
+| Type                    | Data                         |
+|-------------------------|------------------------------|
+| Asset deleted           | `event`, `asset`             |
+| Asset saved             | `event`, `asset`, `isNew`    |
+| Category deleted        | `event`, `category`          |
+| Category saved          | `event`, `category`, `isNew` |
+| Entry deleted           | `event`, `entry`             |
+| Entry saved             | `event`, `entry`, `isNew`    |
+| User activated          | `event`, `user`              |
+| User assigned to groups | `event`, `user`              |
+| User email verified     | `event`, `user`              |
+| User fails to login     | `event`, `user`              |
+| User locked             | `event`, `user`              |
+| User saved              | `event`, `user`, `isNew`     |
+| User deleted            | `event`, `user`              |
+| User suspended          | `event`, `user`              |
+| User unlocked           | `event`, `user`              |
+| User unsuspended        | `event`, `user`              |
+| Custom                  | `event`                      |
 
 ### Define new triggers
 
@@ -172,8 +174,10 @@ Conditions defined by this plugin :
 | Entry section        | Choose one or several section                             | Entry saved, Entry deleted                                                                                                             |
 | Entry slug           | Choose a slug                                             | Entry saved, Entry deleted                                                                                                             |
 | Entry status         | Choose one or several statuses                            | Entry saved, Entry deleted                                                                                                             |
+| Category group       | Choose one or several groups                              | Category saved, Category deleted                                                                                                       |
+| Category status      | Choose one or several statuses                            | Category saved, Category deleted                                                                                                       |
 | Environment variable | Choose an environment variable and a value for it         | Global                                                                                                                                 |
-| Is new               | Is new or not                                             | Entry saved, Asset saved                                                                                                               |
+| Is new               | Is new or not                                             | Entry saved, Asset saved, Category saved, User saved                                                                                   |
 | Request              | Choose one or several type of request (site, cp, console) | Global                                                                                                                                 |
 | Site                 | Choose one or several sites                               | Global                                                                                                                                 |
 | User group           | Choose one or several user group                          | User saved, User email verified, User activated, User locked, User unlocked, User suspended, User unsuspended, User assigned to groups |

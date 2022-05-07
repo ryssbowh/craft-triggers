@@ -4,10 +4,10 @@ namespace Ryssbowh\CraftTriggers\models\conditions;
 
 use Ryssbowh\CraftTriggers\interfaces\TriggerInterface;
 use Ryssbowh\CraftTriggers\models\Condition;
-use craft\elements\User;
+use craft\elements\Category;
 use yii\base\Event;
 
-class UserStatus extends Condition
+class CategoryStatus extends Condition
 {
     /**
      * @var array
@@ -56,7 +56,7 @@ class UserStatus extends Condition
      */
     public function getHandle(): string
     {
-        return 'user-status';
+        return 'category-status';
     }
 
     /**
@@ -82,7 +82,7 @@ class UserStatus extends Condition
      */
     public function getAllStatuses(): array
     {
-        return User::statuses();
+        return Category::statuses();
     }
 
     /**
@@ -90,7 +90,7 @@ class UserStatus extends Condition
      */
     public function check(TriggerInterface $trigger, array $data): bool
     {
-        return in_array($data['user']->status, $this->statuses);
+        return in_array($data['category']->status, $this->statuses);
     }
 
     /**
@@ -98,6 +98,6 @@ class UserStatus extends Condition
      */
     protected function defineForTriggers(): ?array
     {
-        return ['user-saved', 'user-deleted', 'user-assigned-groups'];
+        return ['category-saved', 'category-deleted'];
     }
 }
