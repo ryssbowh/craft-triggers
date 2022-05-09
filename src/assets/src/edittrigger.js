@@ -459,5 +459,16 @@ Craft.Triggers.EditTrigger = Garnish.Base.extend({
                 $(item).parent().hide();
             }
         });
+        items = $('#conditions-list').find('.condition');
+        $.each(items, (i, item) => {
+            let triggers;
+            let isGlobal = $(item).data('global');
+            if (!isGlobal && trigger) {
+                triggers = $(item).data('triggers').split(',');
+                if (!triggers.includes(trigger)) {
+                    $(item).remove();
+                }
+            }
+        });
     }
 });
