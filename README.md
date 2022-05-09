@@ -4,6 +4,10 @@ This plugin defines the structure for trigger management in the control panel. A
 
 This plugin defines triggers and conditions, **it does not come with any actions** as this would be site specific to your needs, actions can be easily created and registered on this plugin.
 
+To define new triggers, conditions or actions you'll need a custom module or plugin, find more documentation on the [Craft docs](https://craftcms.com/docs/3.x/extend/plugin-guide.html) on how to define a new plugin. Or see an example in the [examples](examples) folder.
+
+Please open an new issue to request a usefull trigger/condition that doesn't exist yet or a pull request if you have one to add.
+
 ## Triggers
 
 ![Triggers](/images/triggers.png)
@@ -33,9 +37,13 @@ Triggers defined by this plugin :
 | User unsuspended        | `event`, `user`              |
 | Custom                  | `event`                      |
 
-### Define new triggers
+### Add a new trigger
+
+Use the form to add a new trigger, then add conditions and actions. Conditions and actions that have config will have a little cog that opens the configuration form. They can be dragged around to change their order.
 
 ![Edit](/images/edit.png)
+
+### Define a new trigger
 
 Add a new trigger class, for example :
 
@@ -194,8 +202,6 @@ Add a new trigger class, for example :
 ```
 <?php
 
-namespace Ryssbowh\CraftTriggers\models\conditions;
-
 use Ryssbowh\CraftTriggers\interfaces\TriggerInterface;
 use Ryssbowh\CraftTriggers\models\Condition;
 
@@ -276,6 +282,8 @@ Event::on(TriggersService::class, TriggersService::EVENT_REGISTER_CONDITIONS, fu
 ```
 
 ### Modify which triggers a condition applies to
+
+Triggers for which conditions apply are hard coded on the trigger class itself but can be modified through an event :
 
 ```
 use Ryssbowh\CraftTriggers\events\DefineConditionTriggers;

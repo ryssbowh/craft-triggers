@@ -1,0 +1,14 @@
+{
+    "require": {
+        "plugins/my-plugin": "^1.0",
+    },
+    "repositories": {
+        "plugins": {
+            "type": "path",
+            "url": "plugins/*",
+            "options": {
+                "symlink": true
+            }
+        }
+    }
+}

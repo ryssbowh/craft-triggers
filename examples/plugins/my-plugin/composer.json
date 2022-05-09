@@ -1,0 +1,15 @@
+{
+    "name": "plugins/my-plugin",
+    "type": "craft-plugin",
+    "version": "1.0",
+    "autoload": {
+        "psr-4": {
+          "Plugins\\MyPlugin\\": "."
+        }
+    },
+    "extra": {
+        "name": "My plugin",
+        "handle": "my-plugin",
+        "class": "Plugins\\MyPlugin\\MyPlugin"
+    }
+}

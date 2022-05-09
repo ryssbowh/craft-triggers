@@ -1,0 +1,11 @@
+{% import "_includes/forms" as forms %}
+
+{{
+    forms.textField({
+        label: 'My variable'|t('my-plugin'),
+        name: 'myVariable',
+        required: true,
+        value: action.myVariable,
+        errors: action.getErrors('myVariable')
+    })
+}}
