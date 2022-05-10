@@ -1,5 +1,10 @@
 # Web Puzzlers Triggers Changelog
 
+## 1.0.2 - 2022-05-10
+
+### Fixed
+- Issue when saving groups within groups
+
 ## 1.0.1 - 2022-05-09
 
 ### Fixed
