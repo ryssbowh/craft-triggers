@@ -190,7 +190,7 @@ class TriggersService extends Component
     public function getRegisteredTrigger(string $handle): TriggerInterface
     {
         if ($this->isTriggerRegistered($handle)) {
-            return $this->registeredTriggers[$handle];
+            return clone $this->registeredTriggers[$handle];
         }
         throw TriggerException::noHandle($handle);
     }
@@ -298,7 +298,7 @@ class TriggersService extends Component
     public function getRegisteredCondition(string $handle): ConditionInterface
     {
         if ($this->isConditionRegistered($handle)) {
-            return $this->registeredConditions[$handle];
+            return clone $this->registeredConditions[$handle];
         }
         throw ConditionException::noHandle($handle);
     }
@@ -390,7 +390,7 @@ class TriggersService extends Component
     public function getRegisteredAction(string $handle): ActionInterface
     {
         if ($this->isActionRegistered($handle)) {
-            return $this->registeredActions[$handle];
+            return clone $this->registeredActions[$handle];
         }
         throw ActionException::noHandle($handle);
     }

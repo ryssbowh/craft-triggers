@@ -162,7 +162,7 @@ class Group extends Condition
      */
     public function getConfig(): array
     {
-        $data = array_diff_key($this->attributes, array_flip($this->baseAttributes));
+        $data = array_diff_key($this->attributes, array_flip($this->baseAttributes()));
         return [
             'uid' => $this->uid ?? StringHelper::UUID(),
             'handle' => $this->handle,
