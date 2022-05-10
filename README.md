@@ -8,6 +8,8 @@ To define new triggers, conditions or actions you'll need a custom module or plu
 
 Please open an new issue to request a usefull trigger/condition that doesn't exist yet or a pull request if you have one to add.
 
+Visit the [class reference](https://ryssbowh.github.io/docs/craft-triggers/namespaces/ryssbowh-crafttriggers.html)
+
 ## Triggers
 
 ![Triggers](/images/triggers.png)
