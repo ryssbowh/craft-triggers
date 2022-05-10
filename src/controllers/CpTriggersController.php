@@ -19,7 +19,7 @@ class CpTriggersController extends Controller
     /**
      * All actions require permission 'accessPlugin-triggers' and 'manageTriggers'
      */
-    public function beforeAction($action)
+    public function beforeAction($action): bool
     {
         $this->requirePermission('accessPlugin-triggers');
         $this->requirePermission('manageTriggers');

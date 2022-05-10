@@ -24,12 +24,12 @@ class Triggers extends Plugin
     /**
      * @inheritdoc
      */
-    public $schemaVersion = '1.0.0';
+    public string $schemaVersion = '1.0.0';
 
     /**
      * @inheritdoc
      */
-    public $hasCpSection = true;
+    public bool $hasCpSection = true;
 
     /**
      * @inheritdoc
@@ -69,7 +69,7 @@ class Triggers extends Plugin
     /**
      * @inheritdoc
      */
-    public function getCpNavItem ()
+    public function getCpNavItem(): ?array
     {
         if (\Craft::$app->user->checkPermission('manageTriggers')) {
             $item = parent::getCpNavItem();
