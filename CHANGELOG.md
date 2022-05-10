@@ -1,5 +1,10 @@
 # Web Puzzlers Triggers Changelog
 
+## 2.0.0 - 2022-05-10
+
+### Added
+- Craft 4 support
+
 ## 1.0.2 - 2022-05-10
 
 ### Fixed
