@@ -39,6 +39,22 @@ Triggers defined by this plugin :
 | User unsuspended        | `event`, `user`              |
 | Custom                  | `event`                      |
 
+If you're using Craft commerce, the following will also be available :
+
+| Type                    | Data                                                 |
+|-------------------------|------------------------------------------------------|
+| Order authorized        | `event`, `order`                                     |
+| Order completed         | `event`, `order`                                     |
+| Order saved             | `event`, `order`                                     |
+| Order deleted           | `event`, `order`                                     |
+| Order paid              | `event`, `order`                                     |
+| Payment captured        | `event`, `transaction`                               | 
+| Payment completed       | `event`, `transaction`                               |
+| Payment processed       | `event`, `transaction`, `order`, `form`, `response`  |
+| Payment refunded        | `event`, `transaction`, `refundTransaction`, `amount`|
+| Product saved           | `event`, `product`, `isNew`                          |
+| Product deleted         | `event`, `product`                                   |
+
 ### Add a new trigger
 
 Use the form to add a new trigger, then add conditions and actions. Conditions and actions that have config will have a little cog that opens the configuration form. They can be dragged around to change their order.
@@ -179,15 +195,15 @@ Conditions defined by this plugin :
 |----------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Asset kind           | Choose one or several asset kind                          | Asset saved, Asset deleted                                                                                                             |
 | Asset volume         | Choose one or several volume                              | Asset saved, Asset deleted                                                                                                             |
-| Entry draft          | Draft or not                                              | Entry saved, Entry deleted                                                                                                             |
-| Entry revision       | Revision or not                                           | Entry saved, Entry deleted                                                                                                             |
+| Draft                | Draft or not                                              | Entry saved, Entry deleted, Category saved, Category deleted, Product saved, Product deleted                                           |
+| Revision             | Revision or not                                           | Entry saved, Entry deleted, Category saved, Category deleted, Product saved, Product deleted                                           |
 | Entry section        | Choose one or several section                             | Entry saved, Entry deleted                                                                                                             |
-| Entry slug           | Choose a slug                                             | Entry saved, Entry deleted                                                                                                             |
+| Slug                 | Choose a slug                                             | Entry saved, Entry deleted, Category saved, Category deleted, Product saved, Product deleted                                           |
 | Entry status         | Choose one or several statuses                            | Entry saved, Entry deleted                                                                                                             |
 | Category group       | Choose one or several groups                              | Category saved, Category deleted                                                                                                       |
 | Category status      | Choose one or several statuses                            | Category saved, Category deleted                                                                                                       |
 | Environment variable | Choose an environment variable and a value for it         | Global                                                                                                                                 |
-| Is new               | Is new or not                                             | Entry saved, Asset saved, Category saved, User saved                                                                                   |
+| Is new               | Is new or not                                             | Entry saved, Asset saved, Category saved, Product saved                                                                                |
 | Request              | Choose one or several type of request (site, cp, console) | Global                                                                                                                                 |
 | Site                 | Choose one or several sites                               | Global                                                                                                                                 |
 | User group           | Choose one or several user group                          | User saved, User email verified, User activated, User locked, User unlocked, User suspended, User unsuspended, User assigned to groups |

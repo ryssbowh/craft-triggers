@@ -8,12 +8,12 @@ use craft\elements\Entry;
 use craft\helpers\ElementHelper;
 use yii\base\Event;
 
-class EntrySlug extends Condition
+class Draft extends Condition
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $slug;
+    public $isDraft;
 
     /**
      * @inheritDoc
@@ -21,7 +21,8 @@ class EntrySlug extends Condition
     public function defineRules(): array
     {
         return array_merge(parent::defineRules(), [
-            ['slug', 'required']
+            ['isDraft', 'boolean'],
+            ['isDraft', 'filter', 'filter' => 'boolval']
         ]);
     }
 
@@ -30,7 +31,7 @@ class EntrySlug extends Condition
      */
     public function getName(): string
     {
-        return \Craft::t('triggers', 'Slug');
+        return \Craft::t('triggers', 'Draft');
     }
 
     /**
@@ -38,7 +39,7 @@ class EntrySlug extends Condition
      */
     public function getDescription(): string
     {
-        return $this->slug ? \Craft::t('triggers', 'slug equals "{slug}"', ['slug' => $this->slug]) : \Craft::t('triggers', 'slug not defined');
+        return $this->isDraft ? \Craft::t('triggers', 'is a draft') : \Craft::t('triggers', 'is not a draft');
     }
 
     /**
@@ -46,7 +47,7 @@ class EntrySlug extends Condition
      */
     public function getHandle(): string
     {
-        return 'entry-slug';
+        return 'draft';
     }
 
     /**
@@ -62,7 +63,7 @@ class EntrySlug extends Condition
      */
     public function configTemplate(): string
     {
-        return 'triggers/conditions/slug';
+        return 'triggers/conditions/draft';
     }
 
     /**
@@ -70,7 +71,8 @@ class EntrySlug extends Condition
      */
     public function check(TriggerInterface $trigger, array $data): bool
     {
-        return ($data['entry']->slug === $this->slug);
+        $draft = ElementHelper::isDraft($data['entry']);
+        return ($this->isDraft === $draft);
     }
 
     /**
@@ -78,6 +80,6 @@ class EntrySlug extends Condition
      */
     protected function defineForTriggers(): ?array
     {
-        return ['entry-saved', 'entry-deleted'];
+        return ['entry-saved', 'entry-deleted', 'category-saved', 'category-deleted', 'order-saved', 'product-saved', 'product-deleted'];
     }
 }

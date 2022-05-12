@@ -1,5 +1,21 @@
 # Web Puzzlers Triggers Changelog
 
+## 2.0.1 - 2022-05-12
+
+### Changed
+- Changed EntryDraft, EntryRevision and EntrySlug handles
+
+### Added
+- Commerce triggers
+
+## 1.0.3 - 2022-05-12
+
+### Changed
+- Changed EntryDraft, EntryRevision and EntrySlug handles
+
+### Added
+- Commerce triggers
+
 ## 2.0.0 - 2022-05-10
 
 ### Added

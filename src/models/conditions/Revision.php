@@ -8,7 +8,7 @@ use craft\elements\Entry;
 use craft\helpers\ElementHelper;
 use yii\base\Event;
 
-class EntryRevision extends Condition
+class Revision extends Condition
 {
     /**
      * @var bool
@@ -47,7 +47,7 @@ class EntryRevision extends Condition
      */
     public function getHandle(): string
     {
-        return 'entry-revision';
+        return 'revision';
     }
 
     /**
@@ -80,6 +80,6 @@ class EntryRevision extends Condition
      */
     protected function defineForTriggers(): ?array
     {
-        return ['entry-saved', 'entry-deleted'];
+        return ['entry-saved', 'entry-deleted', 'category-saved', 'category-deleted', 'order-saved', 'product-saved', 'product-deleted'];
     }
 }
