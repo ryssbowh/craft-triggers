@@ -11,6 +11,17 @@ use Ryssbowh\CraftTriggers\models\triggers\CategorySaved;
 use Ryssbowh\CraftTriggers\models\triggers\Custom;
 use Ryssbowh\CraftTriggers\models\triggers\EntryDeleted;
 use Ryssbowh\CraftTriggers\models\triggers\EntrySaved;
+use Ryssbowh\CraftTriggers\models\triggers\OrderAuthorized;
+use Ryssbowh\CraftTriggers\models\triggers\OrderCompleted;
+use Ryssbowh\CraftTriggers\models\triggers\OrderDeleted;
+use Ryssbowh\CraftTriggers\models\triggers\OrderPaid;
+use Ryssbowh\CraftTriggers\models\triggers\OrderSaved;
+use Ryssbowh\CraftTriggers\models\triggers\PaymentCaptured;
+use Ryssbowh\CraftTriggers\models\triggers\PaymentComplete;
+use Ryssbowh\CraftTriggers\models\triggers\PaymentProcessed;
+use Ryssbowh\CraftTriggers\models\triggers\PaymentRefunded;
+use Ryssbowh\CraftTriggers\models\triggers\ProductDeleted;
+use Ryssbowh\CraftTriggers\models\triggers\ProductSaved;
 use Ryssbowh\CraftTriggers\models\triggers\UserActivated;
 use Ryssbowh\CraftTriggers\models\triggers\UserAssignedToGroups;
 use Ryssbowh\CraftTriggers\models\triggers\UserDeleted;
@@ -55,6 +66,21 @@ class RegisterTriggersEvent extends Event
             new UserFailsToLogin,
             new Custom,
         ]);
+        if (\Craft::$app->plugins->isPluginInstalled('commerce')) {
+            $this->addMany([
+                new OrderDeleted,
+                new OrderSaved,
+                new OrderAuthorized,
+                new OrderCompleted,
+                new OrderPaid,
+                new PaymentCaptured,
+                new PaymentComplete,
+                new PaymentProcessed,
+                new PaymentRefunded,
+                new ProductDeleted,
+                new ProductSaved
+            ]);
+        }
     }
 
     /**

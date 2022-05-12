@@ -24,7 +24,7 @@ class Triggers extends Plugin
     /**
      * @inheritdoc
      */
-    public $schemaVersion = '1.0.0';
+    public $schemaVersion = '1.0.3';
 
     /**
      * @inheritdoc

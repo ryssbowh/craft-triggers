@@ -8,16 +8,16 @@ use Ryssbowh\CraftTriggers\models\conditions\AssetKind;
 use Ryssbowh\CraftTriggers\models\conditions\AssetVolume;
 use Ryssbowh\CraftTriggers\models\conditions\CategoryGroup;
 use Ryssbowh\CraftTriggers\models\conditions\CategoryStatus;
-use Ryssbowh\CraftTriggers\models\conditions\EntryDraft;
-use Ryssbowh\CraftTriggers\models\conditions\EntryRevision;
+use Ryssbowh\CraftTriggers\models\conditions\Draft;
 use Ryssbowh\CraftTriggers\models\conditions\EntrySection;
-use Ryssbowh\CraftTriggers\models\conditions\EntrySlug;
 use Ryssbowh\CraftTriggers\models\conditions\EntryStatus;
 use Ryssbowh\CraftTriggers\models\conditions\Environment;
 use Ryssbowh\CraftTriggers\models\conditions\Group;
 use Ryssbowh\CraftTriggers\models\conditions\IsNew;
 use Ryssbowh\CraftTriggers\models\conditions\Request;
+use Ryssbowh\CraftTriggers\models\conditions\Revision;
 use Ryssbowh\CraftTriggers\models\conditions\Site;
+use Ryssbowh\CraftTriggers\models\conditions\Slug;
 use Ryssbowh\CraftTriggers\models\conditions\UserGroup;
 use Ryssbowh\CraftTriggers\models\conditions\UserStatus;
 use yii\base\Event;
@@ -40,9 +40,9 @@ class RegisterConditionsEvent extends Event
             new Environment,
             new EntrySection,
             new EntryStatus,
-            new EntryDraft,
-            new EntryRevision,
-            new EntrySlug,
+            new Draft,
+            new Revision,
+            new Slug,
             new AssetVolume,
             new AssetKind,
             new IsNew,

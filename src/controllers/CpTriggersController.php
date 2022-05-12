@@ -51,6 +51,9 @@ class CpTriggersController extends Controller
         $triggers = array_map(function ($trigger) {
             return $trigger->type;
         }, Triggers::$plugin->triggers->registeredTriggers);
+        uasort($triggers, function ($trigger1, $trigger2) {
+            return $trigger1 > $trigger2 ? 1 : -1;
+        });
         $this->trigger(self::EVENT_EDIT_TRIGGER, new Event);
         return $this->renderTemplate('triggers/add-trigger', [
             'triggers' => ['' => \Craft::t('triggers', 'Select')] + $triggers,
