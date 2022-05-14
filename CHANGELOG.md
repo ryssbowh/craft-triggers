@@ -1,5 +1,10 @@
 # Web Puzzlers Triggers Changelog
 
+## 2.0.2 - 2022-05-12
+
+### Fixed
+- Issue with groups of conditions
+
 ## 2.0.1 - 2022-05-12
 
 ### Changed

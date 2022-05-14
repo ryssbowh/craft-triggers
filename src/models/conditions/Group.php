@@ -147,7 +147,7 @@ class Group extends Condition
     {
         $res = true;
         foreach ($this->activeConditions as $condition) {
-            $conditionResult = $condition->check($this, $e);
+            $conditionResult = $condition->check($this, $data);
             if ($condition->operator === 'and') {
                 $res = ($res and $conditionResult);
             } else {
