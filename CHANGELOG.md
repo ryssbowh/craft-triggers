@@ -1,5 +1,10 @@
 # Web Puzzlers Triggers Changelog
 
+## 2.0.3 - 2022-05-15
+
+### Fixed
+- Fixed issue with permissions
+
 ## 2.0.2 - 2022-05-14
 
 ### Fixed

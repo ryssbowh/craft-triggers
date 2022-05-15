@@ -98,9 +98,12 @@ class Triggers extends Plugin
             UserPermissions::class,
             UserPermissions::EVENT_REGISTER_PERMISSIONS,
             function (RegisterUserPermissionsEvent $event) {
-                $event->permissions[\Craft::t('triggers', 'Triggers')] = [
-                    'manageTriggers' => [
-                        'label' => \Craft::t('triggers', 'Manage triggers')
+                $event->permissions[] = [
+                    'heading' => \Craft::t('triggers', 'Triggers'),
+                    'permissions' => [
+                        'manageTriggers' => [
+                            'label' => \Craft::t('triggers', 'Manage triggers')
+                        ]
                     ]
                 ];
             }
