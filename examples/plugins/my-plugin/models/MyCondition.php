@@ -35,7 +35,7 @@ class MyCondition extends Condition
      */
     public function getDescription(): string
     {
-        return 'this is a new condition'
+        return 'this is a new condition';
     }
 
     /**
