@@ -2,7 +2,7 @@
 
 This plugin defines the structure for trigger management in the control panel. A trigger is triggered by a Craft event under certain conditions and applies certain actions when those conditions are met. Conditions can be specific to each trigger or global.
 
-This plugin defines triggers and conditions, **it does not come with any actions** as this would be site specific to your needs, actions can be easily created and registered on this plugin.
+This plugin defines triggers and conditions and a Log action for testing purposes, **it does not come with "real" actions** as this would be site specific to your needs, actions can be easily created and registered on this plugin.
 
 To define new triggers, conditions or actions you'll need a custom module or plugin, find more documentation on the [Craft docs](https://craftcms.com/docs/3.x/extend/plugin-guide.html) on how to define a new plugin. Or see an example in the [examples](examples) folder.
 

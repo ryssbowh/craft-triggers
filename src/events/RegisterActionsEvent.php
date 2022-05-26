@@ -4,6 +4,7 @@ namespace Ryssbowh\CraftTriggers\events;
 
 use Ryssbowh\CraftTriggers\exceptions\ActionException;
 use Ryssbowh\CraftTriggers\interfaces\ActionInterface;
+use Ryssbowh\CraftTriggers\models\actions\Log;
 use yii\base\Event;
 
 class RegisterActionsEvent extends Event
@@ -12,6 +13,17 @@ class RegisterActionsEvent extends Event
      * @var array
      */
     public $_actions = [];
+
+    /**
+     * @inheritDoc
+     */
+    public function init()
+    {
+        parent::init();
+        $this->addMany([
+            new Log
+        ]);
+    }
 
     /**
      * Actions getter

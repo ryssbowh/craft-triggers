@@ -1,5 +1,15 @@
 # Web Puzzlers Triggers Changelog
 
+## 2.0.4 - 2022-05-26
+
+### Added
+- Log action
+
+## 1.0.5 - 2022-05-26
+
+### Added
+- Log action
+
 ## 2.0.3 - 2022-05-15
 
 ### Fixed
