@@ -1,5 +1,10 @@
 # Web Puzzlers Triggers Changelog
 
+## 1.0.6 - 2022-05-27
+
+### Fixed
+- "Is new" condition now based on $entry->firstSave
+
 ## 1.0.5 - 2022-05-26
 
 ### Added
