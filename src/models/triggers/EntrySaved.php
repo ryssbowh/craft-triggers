@@ -36,7 +36,7 @@ class EntrySaved extends Trigger
         Event::on(Entry::class, Element::EVENT_AFTER_SAVE, function (ModelEvent $e) use ($_this) {
             Triggers::$plugin->triggers->onTriggerTriggered($_this, [
                 'entry' => $e->sender,
-                'isNew' => $e->isNew,
+                'isNew' => $e->sender->firstSave,
                 'event' => $e
             ]);
         });
