@@ -1,5 +1,19 @@
 # Web Puzzlers Triggers Changelog
 
+## 2.0.6 - 2022-05-27
+
+### Fixed
+- "Draft" condition only applies to entries triggers
+- "Revision" condition only applies to entries triggers
+- "Log" action outputs the full trigger type
+
+## 1.0.7 - 2022-05-27
+
+### Fixed
+- "Draft" condition only applies to entries triggers
+- "Revision" condition only applies to entries triggers
+- "Log" action outputs the full trigger type
+
 ## 2.0.5 - 2022-05-27
 
 ### Fixed

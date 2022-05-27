@@ -52,6 +52,6 @@ class Log extends Action
      */
     public function apply(TriggerInterface $trigger, array $data)
     {
-        \Craft::info("The trigger '" . $trigger->name . "' has triggered the log action", __METHOD__);
+        \Craft::info("The trigger '" . $trigger->type . "' has triggered the log action", __METHOD__);
     }
 }

@@ -80,6 +80,6 @@ class Draft extends Condition
      */
     protected function defineForTriggers(): ?array
     {
-        return ['entry-saved', 'entry-deleted', 'category-saved', 'category-deleted', 'order-saved', 'product-saved', 'product-deleted'];
+        return ['entry-saved', 'entry-deleted'];
     }
 }
