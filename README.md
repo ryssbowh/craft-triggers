@@ -390,5 +390,9 @@ Craft >= 3.6.5
 
 `composer require ryssbowh/craft-triggers`
 
+## Documentation
+
+[Class reference](http://docs.test/docs/craft-triggers1/namespaces/ryssbowh-crafttriggers.html)
+
 
 Icon created by [Freepik - Flaticon](https://www.flaticon.com/free-icons/finger)
