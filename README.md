@@ -393,7 +393,7 @@ Craft >= 4.0.0
 
 ## Documentation
 
-[Class reference](http://docs.test/docs/craft-triggers/namespaces/ryssbowh-crafttriggers.html)
+[Class reference](https://ryssbowh.github.io/docs/craft-triggers/namespaces/ryssbowh-crafttriggers.html)
 
 
 Icon created by [Freepik - Flaticon](https://www.flaticon.com/free-icons/finger)
