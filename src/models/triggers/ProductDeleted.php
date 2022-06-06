@@ -6,7 +6,6 @@ use Ryssbowh\CraftTriggers\Triggers;
 use Ryssbowh\CraftTriggers\models\Trigger;
 use craft\base\Element;
 use craft\commerce\elements\Product;
-use craft\events\ModelEvent;
 use yii\base\Event;
 
 class ProductDeleted extends Trigger
@@ -33,7 +32,7 @@ class ProductDeleted extends Trigger
     public function initialize()
     {
         $_this = $this;
-        Event::on(Product::class, Element::EVENT_AFTER_DELETE, function (ModelEvent $e) use ($_this) {
+        Event::on(Product::class, Element::EVENT_AFTER_DELETE, function (Event $e) use ($_this) {
             Triggers::$plugin->triggers->onTriggerTriggered($_this, [
                 'product' => $e->sender,
                 'event' => $e

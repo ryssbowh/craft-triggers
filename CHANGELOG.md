@@ -1,5 +1,15 @@
 # Web Puzzlers Triggers Changelog
 
+## 2.0.7 - 2022-06-06
+
+### Fixed
+- Fixed wrong event class on elements deleted [4](https://github.com/ryssbowh/craft-triggers/issues/4)
+
+## 1.0.8 - 2022-06-06
+
+### Fixed
+- Fixed wrong event class on elements deleted [4](https://github.com/ryssbowh/craft-triggers/issues/4)
+
 ## 2.0.6 - 2022-05-27
 
 ### Fixed

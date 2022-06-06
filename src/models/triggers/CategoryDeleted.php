@@ -6,7 +6,6 @@ use Ryssbowh\CraftTriggers\Triggers;
 use Ryssbowh\CraftTriggers\models\Trigger;
 use craft\base\Element;
 use craft\elements\Category;
-use craft\events\ModelEvent;
 use yii\base\Event;
 
 class CategoryDeleted extends Trigger
@@ -33,7 +32,7 @@ class CategoryDeleted extends Trigger
     public function initialize()
     {
         $_this = $this;
-        Event::on(Category::class, Element::EVENT_AFTER_DELETE, function (ModelEvent $e) use ($_this) {
+        Event::on(Category::class, Element::EVENT_AFTER_DELETE, function (Event $e) use ($_this) {
             Triggers::$plugin->triggers->onTriggerTriggered($_this, [
                 'category' => $e->sender,
                 'event' => $e
