@@ -9,6 +9,9 @@ use yii\base\Event;
 
 class AssetKind extends Condition
 {
+    /**
+     * @var array
+     */
     public $kinds;
 
     /**

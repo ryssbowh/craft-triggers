@@ -14,6 +14,11 @@ use Ryssbowh\CraftTriggers\models\conditions\EntryStatus;
 use Ryssbowh\CraftTriggers\models\conditions\Environment;
 use Ryssbowh\CraftTriggers\models\conditions\Group;
 use Ryssbowh\CraftTriggers\models\conditions\IsNew;
+use Ryssbowh\CraftTriggers\models\conditions\RelatedToAsset;
+use Ryssbowh\CraftTriggers\models\conditions\RelatedToCategory;
+use Ryssbowh\CraftTriggers\models\conditions\RelatedToEntry;
+use Ryssbowh\CraftTriggers\models\conditions\RelatedToProduct;
+use Ryssbowh\CraftTriggers\models\conditions\RelatedToUser;
 use Ryssbowh\CraftTriggers\models\conditions\Request;
 use Ryssbowh\CraftTriggers\models\conditions\Revision;
 use Ryssbowh\CraftTriggers\models\conditions\Site;
@@ -47,12 +52,21 @@ class RegisterConditionsEvent extends Event
             new AssetKind,
             new IsNew,
             new Site,
+            new RelatedToEntry,
+            new RelatedToCategory,
+            new RelatedToAsset,
+            new RelatedToUser,
             new Request,
             new UserStatus,
             new UserGroup,
             new CategoryStatus,
             new CategoryGroup,
         ]);
+        if (\Craft::$app->plugins->isPluginInstalled('commerce')) {
+            $this->addMany([
+                new RelatedToProduct
+            ]);
+        }
     }
 
     /**

@@ -1,9 +1,9 @@
 {% import "_includes/forms" as forms %}
 
-{% set namespace = condition.id ? '[' ~ condition.id ~ ']' : '[' ~ random(100000, 999999) ~ ']' %}
+{% set namespace_data = condition.id ? '[' ~ condition.id ~ ']' : '[' ~ random(100000, 999999) ~ ']' %}
 {% set triggers = condition.forTriggers %}
 
-<div class="condition flex flex-nowrap{% if not condition.active %} inactive{% endif %}" data-handle="{{ condition.getHandle() }}" data-namespace="{{ namespace }}" data-triggers="{{ triggers|join(',') }}" data-global="{{ triggers is same as null }}">
+<div class="condition flex flex-nowrap{% if not condition.active %} inactive{% endif %}" data-handle="{{ condition.getHandle() }}" data-namespace="{{ namespace_data }}" data-triggers="{{ triggers|join(',') }}" data-global="{{ triggers is same as null }}">
     {{ hiddenInput('handle', condition.getHandle()) }}
     {{ hiddenInput('order', condition.order, {class: 'order'}) }}
     {{ hiddenInput('id', condition.id) }}
@@ -32,7 +32,9 @@
     {% if condition.hasConfig %}
         <div class="condition-wrapper" style="display:none">
             <div class="condition-config">
-                {% include condition.configTemplate %}
+                {% include 'triggers/condition-config' with {
+                    namespace: 'conditions' ~ namespace_data
+                } %}
             </div>
         </div>
     {% endif %}

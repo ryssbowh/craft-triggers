@@ -4,9 +4,9 @@ namespace Ryssbowh\CraftTriggers\models\triggers;
 
 use Ryssbowh\CraftTriggers\Triggers;
 use Ryssbowh\CraftTriggers\models\Trigger;
-use craft\base\Element;
 use craft\elements\Asset;
-use craft\events\ModelEvent;
+use craft\events\ElementEvent;
+use craft\services\Elements;
 use yii\base\Event;
 
 class AssetSaved extends Trigger
@@ -33,9 +33,12 @@ class AssetSaved extends Trigger
     public function initialize()
     {
         $_this = $this;
-        Event::on(Asset::class, Element::EVENT_AFTER_SAVE, function (ModelEvent $e) use ($_this) {
+        Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, function (ElementEvent $e) use ($_this) {
+            if (!$e->element instanceof Asset) {
+                return;
+            }
             Triggers::$plugin->triggers->onTriggerTriggered($_this, [
-                'asset' => $e->sender,
+                'asset' => $e->element,
                 'isNew' => $e->isNew,
                 'event' => $e
             ]);

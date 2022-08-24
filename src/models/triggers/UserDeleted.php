@@ -4,8 +4,9 @@ namespace Ryssbowh\CraftTriggers\models\triggers;
 
 use Ryssbowh\CraftTriggers\Triggers;
 use Ryssbowh\CraftTriggers\models\Trigger;
-use craft\base\Element;
 use craft\elements\User;
+use craft\events\ElementEvent;
+use craft\services\Elements;
 use yii\base\Event;
 
 class UserDeleted extends Trigger
@@ -32,9 +33,12 @@ class UserDeleted extends Trigger
     public function initialize()
     {
         $_this = $this;
-        Event::on(User::class, Element::EVENT_AFTER_DELETE, function (Event $e) use ($_this) {
+        Event::on(Elements::class, Elements::EVENT_AFTER_DELETE_ELEMENT, function (ElementEvent $e) use ($_this) {
+            if (!$e->element instanceof User) {
+                return;
+            }
             Triggers::$plugin->triggers->onTriggerTriggered($_this, [
-                'user' => $e->sender,
+                'user' => $e->element,
                 'event' => $e
             ]);
         });

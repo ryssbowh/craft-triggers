@@ -1,0 +1,27 @@
+{% import "_includes/forms" as forms %}
+
+{% set id = 'elementselect' %}
+
+{{
+    forms.elementSelectField({
+        id: id,
+        label: condition.elementName|t('app'),
+        name: 'elementId',
+        elements: condition.element ? [condition.element] : [],
+        errors: condition.getErrors('elementId'),
+        disabled: true,
+    })
+}}
+
+{% set jsSettings = {
+    id: id|namespaceInputId,
+    name: 'elementId'|namespaceInputName,
+    elementType: condition.elementType,
+    limit: 1,
+} %}
+
+{% js %}
+    $('#{{ id|namespaceInputId }} .btn.add').attr('disabled', false).removeClass('disabled');
+    $('#{{ id|namespaceInputId }} .element').addClass('removable');
+    new Craft.BaseElementSelectInput({{ jsSettings|json_encode|raw }});
+{% endjs %}

@@ -639,6 +639,9 @@ class TriggersService extends Component
         $e = new RegisterTriggersEvent;
         $this->trigger(self::EVENT_REGISTER_TRIGGERS, $e);
         $this->_registeredTriggers = $e->triggers;
+        uasort($this->_registeredTriggers, function ($elem1, $elem2) {
+            return $elem1->type > $elem2->type ? 1 : -1;
+        });
     }
 
     /**
@@ -649,6 +652,9 @@ class TriggersService extends Component
         $e = new RegisterConditionsEvent;
         $this->trigger(self::EVENT_REGISTER_CONDITIONS, $e);
         $this->_registeredConditions = $e->conditions;
+        uasort($this->_registeredConditions, function ($elem1, $elem2) {
+            return $elem1->name > $elem2->name ? 1 : -1;
+        });
     }
 
     /**
@@ -659,6 +665,9 @@ class TriggersService extends Component
         $e = new RegisterActionsEvent;
         $this->trigger(self::EVENT_REGISTER_ACTIONS, $e);
         $this->_registeredActions = $e->actions;
+        uasort($this->_registeredActions, function ($elem1, $elem2) {
+            return $elem1->name > $elem2->name ? 1 : -1;
+        });
     }
 
     /**
