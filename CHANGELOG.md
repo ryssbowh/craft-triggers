@@ -1,5 +1,15 @@
 # Web Puzzlers Triggers Changelog
 
+## 2.1.0 - 2022-08-24
+### Changed
+- Changed all deleted and saved elements conditions `Element::EVENT_AFTER_DELETE` to `Elements::EVENT_AFTER_DELETE_ELEMENT` to make sure elements are fully saved and propagated
+### Added
+- Related to entry condition
+- Related to asset condition
+- Related to user condition
+- Related to category condition
+- Related to product condition
+
 ## 2.0.7 - 2022-06-06
 
 ### Fixed

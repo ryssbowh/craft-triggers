@@ -208,6 +208,11 @@ Conditions defined by this plugin :
 | Site                 | Choose one or several sites                               | Global                                                                                                                                 |
 | User group           | Choose one or several user group                          | User saved, User email verified, User activated, User locked, User unlocked, User suspended, User unsuspended, User assigned to groups |
 | User status          | Choose one or several status                              | User saved, User assigned to groups                                                                                                    |
+| Related to entry     | Choose one entry                                          | All element related triggers                                                                                                           |
+| Related to asset     | Choose one asset                                          | All element related triggers                                                                                                           |
+| Related to user      | Choose one user                                           | All element related triggers                                                                                                           |
+| Related to category  | Choose one category                                       | All element related triggers                                                                                                           |
+| Related to product   | Choose one product                                        | All element related triggers                                                                                                           |
 
 ### Groups
 

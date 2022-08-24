@@ -4,8 +4,9 @@ namespace Ryssbowh\CraftTriggers\models\triggers;
 
 use Ryssbowh\CraftTriggers\Triggers;
 use Ryssbowh\CraftTriggers\models\Trigger;
-use craft\base\Element;
 use craft\elements\Asset;
+use craft\events\ElementEvent;
+use craft\services\Elements;
 use yii\base\Event;
 
 class AssetDeleted extends Trigger
@@ -32,9 +33,12 @@ class AssetDeleted extends Trigger
     public function initialize()
     {
         $_this = $this;
-        Event::on(Asset::class, Element::EVENT_AFTER_DELETE, function (Event $e) use ($_this) {
+        Event::on(Elements::class, Elements::EVENT_AFTER_DELETE_ELEMENT, function (ElementEvent $e) use ($_this) {
+            if (!$e->element instanceof Asset) {
+                return;
+            }
             Triggers::$plugin->triggers->onTriggerTriggered($_this, [
-                'asset' => $e->sender,
+                'asset' => $e->element,
                 'event' => $e
             ]);
         });
