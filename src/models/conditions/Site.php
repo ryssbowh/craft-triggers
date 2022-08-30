@@ -92,9 +92,9 @@ class Site extends Condition
      */
     public function check(TriggerInterface $trigger, array $data): bool
     {
-        if (!\Craft::$app->site->currentSite) {
+        if (!\Craft::$app->sites->currentSite) {
             return false;
         }
-        return in_array(\Craft::$app->site->currentSite->uid, $this->sites);
+        return in_array(\Craft::$app->sites->currentSite->uid, $this->sites);
     }
 }
