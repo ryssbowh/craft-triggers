@@ -1,6 +1,6 @@
 # Web Puzzlers Triggers Changelog
 
-## 1.1.2 - 2022-08-30
+## 1.1.2 - 2022-10-12
 ### Changed
 - Changed plugin icons
 
