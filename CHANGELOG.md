@@ -1,5 +1,9 @@
 # Web Puzzlers Triggers Changelog
 
+## 1.1.3 - 2022-10-20
+### Fixed
+- Fixed error with missing import. [#8](https://github.com/ryssbowh/craft-triggers/issues/8)
+
 ## 1.1.2 - 2022-10-12
 ### Changed
 - Changed plugin icons
