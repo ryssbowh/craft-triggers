@@ -6,6 +6,7 @@ use Ryssbowh\CraftTriggers\Triggers;
 use Ryssbowh\CraftTriggers\models\Trigger;
 use craft\elements\User;
 use craft\events\ElementEvent;
+use craft\services\Elements;
 use yii\base\Event;
 
 class UserSaved extends Trigger
