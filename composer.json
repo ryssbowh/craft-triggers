@@ -30,8 +30,8 @@
         "name": "Triggers",
         "handle": "triggers",
         "developer": "The Web Puzzlers",
-        "developerUrl": "https://github.com/ryssbowh",
-        "documentationUrl": "https://github.com/ryssbowh/craft-triggers",
+        "developerUrl": "https://puzzlers.run",
+        "documentationUrl": "https://puzzlers.run/plugins/triggers/1.x",
         "class": "Ryssbowh\\CraftTriggers\\Triggers"
     }
 }
