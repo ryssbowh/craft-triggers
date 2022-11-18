@@ -28,6 +28,7 @@ use Ryssbowh\CraftTriggers\models\triggers\UserDeleted;
 use Ryssbowh\CraftTriggers\models\triggers\UserEmailVerified;
 use Ryssbowh\CraftTriggers\models\triggers\UserFailsToLogin;
 use Ryssbowh\CraftTriggers\models\triggers\UserLocked;
+use Ryssbowh\CraftTriggers\models\triggers\UserLogsIn;
 use Ryssbowh\CraftTriggers\models\triggers\UserSaved;
 use Ryssbowh\CraftTriggers\models\triggers\UserSuspended;
 use Ryssbowh\CraftTriggers\models\triggers\UserUnlocked;
@@ -64,6 +65,7 @@ class RegisterTriggersEvent extends Event
             new UserUnsuspended,
             new UserAssignedToGroups,
             new UserFailsToLogin,
+            new UserLogsIn,
             new Custom,
         ]);
         if (\Craft::$app->plugins->isPluginInstalled('commerce')) {

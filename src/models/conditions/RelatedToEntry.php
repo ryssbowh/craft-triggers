@@ -145,6 +145,6 @@ class RelatedToEntry extends Condition
      */
     protected function defineForTriggers(): ?array
     {
-        return ['asset-saved', 'category-saved', 'entry-saved', 'product-saved', 'order-saved', 'user-email-verified', 'user-fails-login', 'user-locked', 'user-saved', 'user-suspended', 'user-unlocked', 'user-unsuspended'];
+        return ['asset-saved', 'category-saved', 'entry-saved', 'product-saved', 'order-saved', 'user-email-verified', 'user-fails-login', 'user-locked', 'user-saved', 'user-suspended', 'user-unlocked', 'user-unsuspended', 'user-logs-in'];
     }
 }
