@@ -105,6 +105,6 @@ class UserGroup extends Condition
      */
     protected function defineForTriggers(): ?array
     {
-        return ['user-saved', 'user-deleted', 'user-email-verified', 'user-activated', 'user-locked', 'user-unlocked', 'user-suspended', 'user-unsuspended', 'user-assigned-groups'];
+        return ['user-saved', 'user-deleted', 'user-email-verified', 'user-activated', 'user-locked', 'user-unlocked', 'user-suspended', 'user-unsuspended', 'user-assigned-groups', 'user-logs-in'];
     }
 }
