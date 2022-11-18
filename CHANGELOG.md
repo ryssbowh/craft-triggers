@@ -10,6 +10,10 @@
 
 - User logs in trigger
 
+### Fixed
+
+- Fixed issue when an operator wouldn't show in a grouped condition
+
 ## 1.1.3 - 2022-10-20
 
 ### Fixed
