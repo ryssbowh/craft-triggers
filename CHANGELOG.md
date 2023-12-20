@@ -1,5 +1,11 @@
 # Web Puzzlers Triggers Changelog
 
+## 1.1.5 - 2023-12-20
+
+### Added
+
+- "Element site" condition which looks at the element's site
+
 ## 1.1.4 - 2022-11-18
 
 ### Changed
