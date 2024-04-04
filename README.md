@@ -20,5 +20,5 @@ Craft >= 4.0.0
 
 ## Documentation
 
-- [Plugin documentation](https://puzzlers.run/plugins/triggers/2.x)
+- [Plugin documentation](https://www.webpuzzlers.co.uk/plugins/triggers/2.x)
 - [Class reference](https://ryssbowh.github.io/docs/craft-triggers/namespaces/ryssbowh-crafttriggers.html)

@@ -29,8 +29,8 @@
         "name": "Triggers",
         "handle": "triggers",
         "developer": "The Web Puzzlers",
-        "developerUrl": "https://puzzlers.run",
-        "documentationUrl": "https://puzzlers.run/plugins/triggers/2.x",
+        "developerUrl": "https://www.webpuzzlers.co.uk",
+        "documentationUrl": "https://www.webpuzzlers.co.uk/plugins/triggers/2.x",
         "class": "Ryssbowh\\CraftTriggers\\Triggers"
     }
 }
