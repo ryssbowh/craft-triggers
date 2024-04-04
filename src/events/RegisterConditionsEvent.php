@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Ryssbowh\CraftTriggers\events;
 
@@ -9,6 +9,7 @@ use Ryssbowh\CraftTriggers\models\conditions\AssetVolume;
 use Ryssbowh\CraftTriggers\models\conditions\CategoryGroup;
 use Ryssbowh\CraftTriggers\models\conditions\CategoryStatus;
 use Ryssbowh\CraftTriggers\models\conditions\Draft;
+use Ryssbowh\CraftTriggers\models\conditions\ElementSite;
 use Ryssbowh\CraftTriggers\models\conditions\EntrySection;
 use Ryssbowh\CraftTriggers\models\conditions\EntryStatus;
 use Ryssbowh\CraftTriggers\models\conditions\Environment;
@@ -41,37 +42,38 @@ class RegisterConditionsEvent extends Event
     {
         parent::init();
         $this->addMany([
-            new Group,
-            new Environment,
-            new EntrySection,
-            new EntryStatus,
-            new Draft,
-            new Revision,
-            new Slug,
-            new AssetVolume,
-            new AssetKind,
-            new IsNew,
-            new Site,
-            new RelatedToEntry,
-            new RelatedToCategory,
-            new RelatedToAsset,
-            new RelatedToUser,
-            new Request,
-            new UserStatus,
-            new UserGroup,
-            new CategoryStatus,
-            new CategoryGroup,
+            new Group(),
+            new ElementSite(),
+            new Environment(),
+            new EntrySection(),
+            new EntryStatus(),
+            new Draft(),
+            new Revision(),
+            new Slug(),
+            new AssetVolume(),
+            new AssetKind(),
+            new IsNew(),
+            new Site(),
+            new RelatedToEntry(),
+            new RelatedToCategory(),
+            new RelatedToAsset(),
+            new RelatedToUser(),
+            new Request(),
+            new UserStatus(),
+            new UserGroup(),
+            new CategoryStatus(),
+            new CategoryGroup(),
         ]);
         if (\Craft::$app->plugins->isPluginInstalled('commerce')) {
             $this->addMany([
-                new RelatedToProduct
+                new RelatedToProduct()
             ]);
         }
     }
 
     /**
      * Conditions getter
-     * 
+     *
      * @return array
      */
     public function getConditions(): array
@@ -81,7 +83,7 @@ class RegisterConditionsEvent extends Event
 
     /**
      * Add a condition
-     * 
+     *
      * @param ConditionInterface $condition
      * @param bool               $replaceIfExists
      */
@@ -96,7 +98,7 @@ class RegisterConditionsEvent extends Event
 
     /**
      * Add many conditions
-     * 
+     *
      * @param array $conditions
      * @param bool  $replaceIfExists
      */
