@@ -1,4 +1,4 @@
-# Triggers for Craft CMS 4
+# Triggers for Craft CMS 5
 
 This plugin defines the structure for trigger management in the control panel. A trigger is triggered by a Craft event under certain conditions and applies certain actions when those conditions are met. Conditions can be specific to each trigger or global.
 
@@ -8,15 +8,10 @@ To define new triggers, conditions or actions you'll need a custom module or plu
 
 Please open an new issue to request a usefull trigger/condition that doesn't exist yet or a pull request if you have one to add.
 
-Also available for [Craft 3.5](https://github.com/ryssbowh/craft-triggers/tree/1.0)
-
-## Requirements
-
-Craft >= 4.0.0
 
 ## Installation
 
-`composer require ryssbowh/craft-triggers:^2.0`
+`composer require ryssbowh/craft-triggers:^3.0`
 
 ## Documentation
 

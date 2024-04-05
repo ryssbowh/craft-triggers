@@ -7,6 +7,13 @@
 {% set selectedSubnavItem = 'triggers' %}
 {% set mainFormAttributes = {autocomplete: 'off'} %}
 
+{% set crumbs = {
+    triggers: {
+        url: 'triggers',
+        label: 'Triggers'|t('triggers')
+    }
+} %}
+
 {% block submitButton %}
 {% endblock %}
 

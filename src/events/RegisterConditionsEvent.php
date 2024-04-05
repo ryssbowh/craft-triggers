@@ -15,6 +15,7 @@ use Ryssbowh\CraftTriggers\models\conditions\EntryStatus;
 use Ryssbowh\CraftTriggers\models\conditions\Environment;
 use Ryssbowh\CraftTriggers\models\conditions\Group;
 use Ryssbowh\CraftTriggers\models\conditions\IsNew;
+use Ryssbowh\CraftTriggers\models\conditions\IsPrimary;
 use Ryssbowh\CraftTriggers\models\conditions\RelatedToAsset;
 use Ryssbowh\CraftTriggers\models\conditions\RelatedToCategory;
 use Ryssbowh\CraftTriggers\models\conditions\RelatedToEntry;
@@ -63,6 +64,7 @@ class RegisterConditionsEvent extends Event
             new UserGroup(),
             new CategoryStatus(),
             new CategoryGroup(),
+            new IsPrimary(),
         ]);
         if (\Craft::$app->plugins->isPluginInstalled('commerce')) {
             $this->addMany([
