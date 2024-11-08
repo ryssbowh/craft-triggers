@@ -19,11 +19,15 @@ class EntrySection extends Condition
     public function defineRules(): array
     {
         return array_merge(parent::defineRules(), [
-            ['sections', function () {
-                if (!is_array($this->sections) or sizeof($this->sections) == 0) {
-                    $this->addError('sections', \Craft::t('triggers', '{attr} is required', ['attr' => 'Sections']));
-                }
-            }, 'skipOnEmpty' => false]
+            [
+                'sections',
+                function () {
+                    if (!is_array($this->sections) or sizeof($this->sections) == 0) {
+                        $this->addError('sections', \Craft::t('triggers', '{attr} is required', ['attr' => 'Sections']));
+                    }
+                },
+                'skipOnEmpty' => false
+            ]
         ]);
     }
 
@@ -44,7 +48,7 @@ class EntrySection extends Condition
             return \Craft::t('triggers', 'sections not defined');
         }
         $sections = array_map(function ($section) {
-            return \Craft::$app->sections->getSectionByUid($section)->name;
+            return \Craft::$app->entries->getSectionByUid($section)->name;
         }, $this->sections);
         return \Craft::t('triggers', 'section is one of : {sections}', ['sections' => implode(', ', $sections)]);
     }
@@ -81,7 +85,7 @@ class EntrySection extends Condition
     public function getAllSections(): array
     {
         $sections = [];
-        foreach (\Craft::$app->sections->getAllSections() as $section) {
+        foreach (\Craft::$app->entries->getAllSections() as $section) {
             $sections[$section->uid] = $section->name;
         }
         return $sections;
