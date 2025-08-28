@@ -1,6 +1,6 @@
 # Web Puzzlers Triggers Changelog
 
-## 2.2.0 - 2025-08-28
+## 2.1.6 - 2025-08-28
 
 ### Fixed
 
