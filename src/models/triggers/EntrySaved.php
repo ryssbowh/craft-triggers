@@ -2,11 +2,10 @@
 
 namespace Ryssbowh\CraftTriggers\models\triggers;
 
+use craft\events\ModelEvent;
 use Ryssbowh\CraftTriggers\Triggers;
 use Ryssbowh\CraftTriggers\models\Trigger;
 use craft\elements\Entry;
-use craft\events\ElementEvent;
-use craft\services\Elements;
 use yii\base\Event;
 
 class EntrySaved extends Trigger
@@ -33,13 +32,10 @@ class EntrySaved extends Trigger
     public function initialize()
     {
         $_this = $this;
-        Event::on(Elements::class, Elements::EVENT_AFTER_SAVE_ELEMENT, function (ElementEvent $e) use ($_this) {
-            if (!$e->element instanceof Entry) {
-                return;
-            }
+        Event::on(Entry::class, Entry::EVENT_AFTER_SAVE, function (ModelEvent $e) use ($_this) {
             Triggers::$plugin->triggers->onTriggerTriggered($_this, [
-                'entry' => $e->element,
-                'isNew' => $e->isNew,
+                'entry' => $e->sender,
+                'isNew' => $e->sender->firstSave,
                 'event' => $e
             ]);
         });

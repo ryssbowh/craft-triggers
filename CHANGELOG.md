@@ -1,5 +1,11 @@
 # Web Puzzlers Triggers Changelog
 
+## 2.2.0 - 2025-08-28
+
+### Fixed
+
+- Fixed issue not able to match a new entry [#11](https://github.com/ryssbowh/craft-triggers/issues/11)
+
 ## 2.1.5 - 2024-04-04
 
 ### Added
