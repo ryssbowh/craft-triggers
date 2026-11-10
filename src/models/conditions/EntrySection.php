@@ -4,7 +4,6 @@ namespace Ryssbowh\CraftTriggers\models\conditions;
 
 use Ryssbowh\CraftTriggers\interfaces\TriggerInterface;
 use Ryssbowh\CraftTriggers\models\Condition;
-use yii\base\Event;
 
 class EntrySection extends Condition
 {
@@ -96,7 +95,7 @@ class EntrySection extends Condition
      */
     public function check(TriggerInterface $trigger, array $data): bool
     {
-        return in_array($data['entry']->section->uid, $this->sections);
+        return $data['entry']->section and in_array($data['entry']->section->uid, $this->sections);
     }
 
     /**

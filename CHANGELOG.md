@@ -1,5 +1,11 @@
 # Web Puzzlers Triggers Changelog
 
+## 3.0.2 - 2026-11-10
+
+### Fixed
+
+- Fixed issue with entry sections not defined [#12](https://github.com/ryssbowh/craft-triggers/issues/12)
+
 ## 3.0.1 - 2024-11-08
 
 ### Fixed
